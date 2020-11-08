@@ -1,0 +1,39 @@
+﻿{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href={% static 'css/bootstrap.css' %}>
+    <title>register</title>
+</head>
+<body>
+    <div class="col-md-8">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="container">
+        <form action={% url 'register' %} method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Username" name="username" /><br />
+            <input type="text" placeholder="First name" name="fname" /><br />
+            <input type="text" placeholder="Last name" name="lname" /><br />
+            <input type="email" placeholder="email" name="email" /><br />
+            <input type="password" placeholder="password" name="password1" /><br />
+            <input type="password" placeholder="Confirm Password" name="password2" /><br />
+            <input type="submit" />
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href="#">Sign In</a>
+            </small>
+        </div>
+    </div>
+
+</body>
+</html>

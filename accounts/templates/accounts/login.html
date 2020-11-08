@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="content-section">
+        <form action ={% url 'login' %} method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="username" name="username" />
+            <input type="password" placeholder="Password" name="password" />
+            <input type="submit" placeholder="login" />
+        </form>
+        <div>
+            <small class="text-muted">
+                Dont have an acc? <a  href="register/">Register now</a>
+            </small>
+        </div>
+    </div>
+</body>
+</html>
