@@ -1,0 +1,39 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add post</title>
+    <link rel="stylesheet" href={% static 'css/bootstrap.css' %}>
+    <style>
+        body{
+            display:flex;
+        }
+        .container{
+            text-align: center;
+            margin-top: 100px;
+        }
+        form{
+            margin:auto;
+        }
+        input {
+            height:50px;
+            border-radius:25px;
+        }
+        input:focus{
+            border:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method='POST' enctype="multipart/form-data">
+            {% csrf_token %}
+            location:{{pform.location}}<br>
+            {{pform.image}}
+            <input type="submit">
+        </form>
+    </div>
+
+
+</body>
+</html>

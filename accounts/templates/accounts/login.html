@@ -1,21 +1,52 @@
-﻿<!DOCTYPE html>
+﻿{% load static %}
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href={% static 'css/bootstrap.css' %}>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>login</title>
+    <style>
+        body{
+            display:flex;
+        }
+        .container{
+            text-align: center;
+            margin-top: 100px;
+        }
+        form{
+            margin:auto;
+        }
+        input {
+            height:50px;
+            border-radius:25px;
+        }
+        input:focus{
+            border:none;
+        }
+    </style>
 </head>
 <body>
-    <div class="content-section">
-        <form action ={% url 'login' %} method="POST">
+    {% if messages %}
+    <div style="margin:10px;">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+     {% endif %}
+    
+    <div class="container">
+        <form action={% url 'login' %} method="POST">
             {% csrf_token %}
-            <input type="text" placeholder="username" name="username" />
-            <input type="password" placeholder="Password" name="password" />
-            <input type="submit" placeholder="login" />
+            <input type="text" placeholder="username" name="username" /><br /><br>
+            <input type="password" placeholder="Password" name="password" /><br /><br>
+            <input type="submit" placeholder="login" /><br /><br>
         </form>
         <div>
             <small class="text-muted">
-                Dont have an acc? <a  href="register/">Register now</a>
+                Dont have an acc? <a href="register/">Register now</a>
             </small>
         </div>
     </div>

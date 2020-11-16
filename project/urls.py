@@ -18,12 +18,16 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from accounts import views as account_views
+from kondeti import views as k_v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',account_views.login, name='login'),
     path('register/',account_views.register, name='register'),
+    path('logout/',account_views.logout,name='logout'),
+    path('update/',account_views.update,name='update'),
+    #path('addPost/',k_v.addPost,name='addpost'),
     path('kondeti/',include('kondeti.urls')),
-    path('logout/',account_views.logout,name='logout')
+
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

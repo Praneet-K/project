@@ -2,12 +2,17 @@
   "ExpandedNodes": [
     "",
     "\\accounts",
+    "\\accounts\\templates",
+    "\\accounts\\templates\\accounts",
+    "\\assets",
+    "\\assets\\css",
     "\\kondeti",
+    "\\kondeti\\templates",
+    "\\kondeti\\templates\\kondeti",
     "\\project",
-    "\\templates",
-    "\\templates\\accounts",
-    "\\templates\\kondeti"
+    "\\static",
+    "\\static\\css"
   ],
-  "SelectedNode": "\\project\\urls.py",
+  "SelectedNode": "\\kondeti\\templates\\kondeti\\content.html",
   "PreviewInSolutionExplorer": false
 }

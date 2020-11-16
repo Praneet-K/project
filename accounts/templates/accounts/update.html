@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href={% static 'css/bootstrap.css' %}>
+    <title>update</title>
+</head>
+<body>
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Profile Info</legend>
+                User name:{{ u_form.username}}<br><br>
+                First name:{{u_form.first_name}}<br><br>
+                Last Name{{u_form.last_name}}<br><br>
+                Email:{{u_form.email}}<br /><br>
+                <hr />
+                {{ p_form.as_table}}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

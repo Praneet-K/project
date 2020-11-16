@@ -5,33 +5,31 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KSN</title>
+    <title>Project</title>
     <link rel="stylesheet" href={% static 'css/bootstrap.css' %}>
     <link rel="stylesheet" href={% static 'css/style.css' %}>
 </head>
 <body>
-    <div class="col-md-8">
-        {% if messages %}
+    {% if messages %}
+    <div style="margin:10px;">
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
             {{ message }}
         </div>
         {% endfor %}
-        {% endif %}
     </div>
+     {% endif %}
+    
     <header>
         <nav id="header-nav" class="nav navbar-default">
+            <div></div>
             <div class="container">
                 <div class="navbar-header">
-                    <a href="#" class=" pull-left visible-md visible-lg visible-md">
-                        <div id="logo-img" alt="profilepic">
-                            <img src="{{user.profile.image.url}}" class="img-responsive" />
-                        </div>
-                    </a>
-                    <div class="navbar-brand">
-                        <a href="#">
-                            <h1>{{user.first_name}}</h1>
-                        </a>
+                    <div id="logo-img" class=" pull-left">
+                        <img src="{{user.profile.image.url}}" class="img-responsive" alt="profilepic" style="min-height:100%;" />
+                    </div>
+                    <div class="navbar-brand pull-left">
+                        <h1>{{user.first_name}}</h1>
                     </div>  <!--navbar-brand-->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
@@ -40,25 +38,28 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>  <!--navbar-header-->
+
                 <div id="collapsable-nav" class="nav navbar-nav navbar-right">
                     <ul id="nav-list" class="nav navbar-nav navbar-right">
                         <li>
-                            <a href={% url 'logout' %}>
-                                <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs">logout</br>
-                            </a>
+                            <a href={% url 'update' %}>update</a>
                         </li>
+                        <li>
+                            <a href={% url 'logout' %}>logout</a>
+                        </li>
+
                         <!-- <li>
-                            <a href="tel:+917032219565">
-                                <span class="glyphicon glyphicon-earphone"></span><br class="hidden-xs">Contact-us</br>
-                            </a>
-                        </li> -->
+        <a href="tel:+917032219565">
+            <span class="glyphicon glyphicon-earphone"></span><br class="hidden-xs">Contact-us</br>
+        </a>
+    </li> -->
                     </ul>
                 </div> <!--collapsable-nav-->
             </div> <!--container-->
         </nav>
     </header>
     <div id="maincontent" class="container">
-        <div id="mainprofile" class="col-lg-3 col-md-3">
+        <div id="mainprofile" class="col-lg-4 col-md-4">
             <div id="mainnumber">
                 Phone.no:<br>
                 {{user.profile.phno}}
@@ -84,18 +85,23 @@
             </div>
             <hr>
         </div>
-        <div id="posts" class="col-lg-7 col-md-7">
-            <input type="text" placeholder="Enter the Username" />
-            <div id="posttile">
-                <img src="#"  class="img-responsive ">
-                <div>Uploaded by Kondeti</div>
+        <div id="posts" class="col-lg-8 col-md-8">
+            <a href="addPost">
+            <div id="postadd">
+                Add Post
+            </div>
+            </a>
+            <!--<input type="text" placeholder="Enter the Username" /> -->
+            <div id="posttile" class="text-center">
+                {% for post in posts%}
+                <img src="{{post.image.url}}" class="img-responsive " style="min-width:100%; height:auto;">
+                <div>Uploaded by {{post.creator}}</div>
+                {% endfor %}
             </div>
         </div>
-        <div id="friends" class="col-lg-2 col-md-2">
-            <div>Pavan</div>
-        </div>
-        <!--homepage-begins-->
-        <script src={% static 'js/jquery.js' %}></script>
-        <script src={% static 'js/bootstrap.min.js' %}></script>
+    </div>
+    <!--homepage-begins-->
+    <script src={% static 'js/jquery.js' %}></script>
+    <script src={% static 'js/bootstrap.min.js' %}></script>
 </body>
 </html>
