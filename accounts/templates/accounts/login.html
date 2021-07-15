@@ -28,13 +28,11 @@
 </head>
 <body>
     {% if messages %}
-    <div style="margin:10px;">
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
             {{ message }}
         </div>
         {% endfor %}
-    </div>
      {% endif %}
     
     <div class="container">

@@ -3,6 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User,auth
 from .forms import UserRegisterForm, UserUpdateForm , ProfileUpdateForm
+from django.contrib.auth.decorators import login_required
+from django.conf import settings 
+from django.core.mail import send_mail 
 
 # Create your views here.
 def register(request):
@@ -24,6 +27,11 @@ def register(request):
                 user= User.objects.create_user(username=username, password=password1, email=email, first_name=first_name,last_name=last_name)
                 user.save();
                 messages.success(request,'User Created login now')
+                subject = 'Registration Sucessful'
+                message = f'Hi {user.username}, thank you for registering in project.'
+                email_from = settings.EMAIL_HOST_USER 
+                recipient_list = [user.email, ] 
+                send_mail( subject, message, email_from, recipient_list )
                 return redirect('/')
         else:
             messages.warning(request,'Passwords do not match')
@@ -39,12 +47,18 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             return redirect("kondeti/")
+        else:
+            messages.warning(request,'Username or password incorrect')
+            return render(request,'accounts/login.html')
     else:
         return render(request,'accounts/login.html')
+
+@login_required(login_url='/')
 def logout(request):
     auth.logout(request);
     return redirect('/')
 
+@login_required(login_url='/')
 def update(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)

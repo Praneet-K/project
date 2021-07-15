@@ -83,7 +83,7 @@ a button{
 	line-height: 75px;
 	border:1px solid green;
 }
-#posttile img{
+#posttile{
 	max-width:100%;
 	min-width:100%;
 	height:auto;
@@ -93,7 +93,7 @@ a button{
 	color:white;
 }
 
-#friends>div{
+.ustile{
   padding:10px;
   background-color: green;
   height:50px;

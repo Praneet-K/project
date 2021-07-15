@@ -2,12 +2,17 @@ from django.shortcuts import render, redirect
 from .models import Post
 from .forms import Addpostform
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 # Create your views here.
-
+@login_required(login_url='/')
 def home(request):
     posts=Post.objects.all()
-    return render(request,'kondeti/content.html',{'posts':posts})
+    u = User.objects.all()
+    return render(request,'kondeti/content.html',{'posts':posts,'u':u})
+
+@login_required(login_url='/')
 def addPost(request):
 	pform = Addpostform(request.POST,request.FILES)
 	if request.method == 'POST':

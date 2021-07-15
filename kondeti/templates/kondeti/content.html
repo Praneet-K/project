@@ -59,7 +59,7 @@
         </nav>
     </header>
     <div id="maincontent" class="container">
-        <div id="mainprofile" class="col-lg-4 col-md-4">
+        <div id="mainprofile" class="col-lg-3 col-md-3">
             <div id="mainnumber">
                 Phone.no:<br>
                 {{user.profile.phno}}
@@ -85,7 +85,7 @@
             </div>
             <hr>
         </div>
-        <div id="posts" class="col-lg-8 col-md-8">
+        <div id="posts" class="col-lg-6 col-md-6">
             <a href="addPost">
             <div id="postadd">
                 Add Post
@@ -93,14 +93,22 @@
             </a>
             <!--<input type="text" placeholder="Enter the Username" /> -->
             <div id="posttile" class="text-center">
-                {% for post in posts%}
+                {% for post in posts reversed %}
                 <img src="{{post.image.url}}" class="img-responsive " style="min-width:100%; height:auto;">
                 <div>Uploaded by {{post.creator}}</div>
                 {% endfor %}
             </div>
         </div>
+        <div id="users" class="col-lg-3 col-md-3">
+            {% for us in u %}
+                <div class="ustile">
+                    <div>{{us.username}}</div>
+                    <div style="height:100%;width: 100%;">
+                    <img src="{{us.profile.image.url}}" class="img-responsive">
+                    </div>
+                </div>
+            {% endfor %}
     </div>
-    <!--homepage-begins-->
     <script src={% static 'js/jquery.js' %}></script>
     <script src={% static 'js/bootstrap.min.js' %}></script>
 </body>

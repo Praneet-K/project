@@ -17,7 +17,12 @@
                 Last Name{{u_form.last_name}}<br><br>
                 Email:{{u_form.email}}<br /><br>
                 <hr />
-                {{ p_form.as_table}}
+                <div style="width:240px; float:left;">Profile pic</div> :<br> {{p_form.image}}<br><br>
+                <div style="width:240px; float:left">Phone number</div>: {{p_form.phno}}<br><br>
+                <div style="width:240px; float:left">state       </div>: {{p_form.state}}<br><br>
+                <div style="width:240px; float:left">university  </div>: {{p_form.university}}<br><br>
+                <div style="width:240px; float:left">sem         </div>: {{p_form.sem}}<br><br>
+                
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Update</button>
