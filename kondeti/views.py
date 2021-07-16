@@ -24,4 +24,6 @@ def addPost(request):
 			return redirect('/kondeti/')
 	else:
 		return render(request,'kondeti/addpost.html',{'pform':pform})
+def display(request):
+	return render(request,'kondeti/display.html',{'uname':'name'})
 

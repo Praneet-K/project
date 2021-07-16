@@ -22,12 +22,12 @@ from kondeti import views as k_v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',account_views.login, name='login'),
+    path('kondeti/',include('kondeti.urls')),
     path('register/',account_views.register, name='register'),
     path('logout/',account_views.logout,name='logout'),
     path('update/',account_views.update,name='update'),
     #path('addPost/',k_v.addPost,name='addpost'),
-    path('kondeti/',include('kondeti.urls')),
+    path('',account_views.login, name='login'),
 
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
