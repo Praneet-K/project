@@ -24,6 +24,7 @@ def addPost(request):
 			return redirect('/kondeti/')
 	else:
 		return render(request,'kondeti/addpost.html',{'pform':pform})
-def display(request):
-	return render(request,'kondeti/display.html',{'uname':'name'})
+def display(request,userid):
+	U = User.objects.filter(id=userid)
+	return render(request,'kondeti/display.html',{'u':U})
 

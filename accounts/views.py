@@ -26,12 +26,12 @@ def register(request):
             else:
                 user= User.objects.create_user(username=username, password=password1, email=email, first_name=first_name,last_name=last_name)
                 user.save();
-                messages.success(request,'User Created login now')
-                subject = 'Registration Sucessful'
-                message = f'Hi {user.username}, thank you for registering in project.'
-                email_from = settings.EMAIL_HOST_USER 
-                recipient_list = [user.email, ] 
-                send_mail( subject, message, email_from, recipient_list )
+                # messages.success(request,'User Created login now')
+                # subject = 'Registration Sucessful'
+                # message = f'Hi {user.username}, thank you for registering in project.'
+                # email_from = settings.EMAIL_HOST_USER 
+                # recipient_list = [user.email, ] 
+                # send_mail( subject, message, email_from, recipient_list )
                 return redirect('/')
         else:
             messages.warning(request,'Passwords do not match')

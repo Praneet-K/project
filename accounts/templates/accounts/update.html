@@ -5,6 +5,17 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href={% static 'css/bootstrap.css' %}>
     <title>update</title>
+    <!-- <style>
+        body{
+            background-color: #000000;
+            color: #ffffff;
+        }
+        imput{
+            background-color:#000000;
+            color: #ffffff;
+        }
+    </style> -->
+
 </head>
 <body>
     <div class="container">
@@ -12,16 +23,21 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Profile Info</legend>
-                User name:{{ u_form.username}}<br><br>
-                First name:{{u_form.first_name}}<br><br>
-                Last Name{{u_form.last_name}}<br><br>
-                Email:{{u_form.email}}<br /><br>
+                <div style="width:240px; float:left;">{{u_form.username.label}}</div>:{{ u_form.username}}<br><br>
+
+                <div style="width:240px; float:left;">{{u_form.first_name.label}}</div>:{{u_form.first_name}}<br><br>
+
+                <div style="width:240px; float:left;">{{u_form.last_name.label}}</div>:{{u_form.last_name}}<br><br>
+
+                <div style="width:240px; float:left;">{{u_form.email.label}}</div>:{{u_form.email}}<br /><br><br>
                 <hr />
                 <div style="width:240px; float:left;">Profile pic</div> :<br> {{p_form.image}}<br><br>
                 <div style="width:240px; float:left">Phone number</div>: {{p_form.phno}}<br><br>
                 <div style="width:240px; float:left">state       </div>: {{p_form.state}}<br><br>
                 <div style="width:240px; float:left">university  </div>: {{p_form.university}}<br><br>
                 <div style="width:240px; float:left">sem         </div>: {{p_form.sem}}<br><br>
+                <div style="width:240px; float:left">Date of birth</div>: {{p_form.dob}}<br><br>
+                <div style="width:240px; float:left">{{p_form.gender.label}}       </div> <br>{{p_form.gender}}<br><br>
                 
             </fieldset>
             <div class="form-group">

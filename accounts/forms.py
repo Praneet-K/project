@@ -21,6 +21,9 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
+    CHOICES = [('M','Male'),('F','Female'),('U','Unknown')]
+    gender=forms.CharField(label='Gender', widget=forms.RadioSelect(choices=CHOICES))
+    dob = forms.DateField(widget=forms.SelectDateWidget(attrs={'type':'date'}))
     class Meta:
         model = Profile
-        fields = ['image','phno','state','university','sem']
+        fields = ['image','phno','state','university','sem','dob','gender']
