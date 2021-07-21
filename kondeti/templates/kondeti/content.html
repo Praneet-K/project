@@ -99,17 +99,18 @@
                 {% endfor %}
             </div>
         </div>
-        <div id="users" class="col-lg-3 col-md-3">
+        <div class="col-lg-3 col-md-3">
             {% for us in u %}
-            <a href="display/{{us.id}}"
-                <div class="ustile">
+            <a href="display/{{us.id}}" class="ustile">
                     <div>{{us.username}}</div>
-                    <div style="height:100%;width: 100%;">
-                    <img src="{{us.profile.image.url}}" class="img-responsive">
+                    <div>
+                        <img src="{{us.profile.image.url}}" class="img-responsive">
                     </div>
-                </div>
             {% endfor %}
+            </a>
+        </div>
     </div>
+
     <script src={% static 'js/jquery.js' %}></script>
     <script src={% static 'js/bootstrap.min.js' %}></script>
 </body>

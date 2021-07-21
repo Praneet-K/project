@@ -26,5 +26,7 @@ def addPost(request):
 		return render(request,'kondeti/addpost.html',{'pform':pform})
 def display(request,userid):
 	U = User.objects.filter(id=userid)
-	return render(request,'kondeti/display.html',{'u':U})
+	#U = User.objects.get(id=userid)
+	print(U[0].username)
+	return render(request,'kondeti/display.html',{'u':U[0]})
 
