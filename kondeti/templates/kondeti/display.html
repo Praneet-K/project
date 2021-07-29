@@ -6,28 +6,64 @@
 	<title>Display</title>
 	<link rel="stylesheet" href={% static 'css/bootstrap.css' %}>
 	<style>
+	*{
+		margin-top:20px;
+	}
+	body{
+		background-color:orangered;
+	}
+	.container{
+		margin-top:100px;
+		align-content:center;
+		align-items:center;
+		background-color:#ffffff;
+	}
+	img{
+		margin-top:50px;
+		display:block;
+		max-height:200px;
+		min-height:200px;
+		max-width:200px;
+		min-width:200px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	table{
+		/*width:480px;*/
+		margin-left:auto;
+		margin-right:auto;
+		border-spacing: 20px;
+	}
+	tr{
+		padding:10px;
+	}
+	td{
+		margin-top: 30px;
+	}
 		
 	</style>
 </head>
 <body>
 	<div class="container">
-		<div class="col-lg-3 visible-lg">
-			
-		</div>
-		<div id="main" class="col-lg-6" style="display:flex;align-items: center;align-content: center;">
-			<img src="{{u.profile.image.url}}" class="img-responsive" style="max-height:150px;">
-			<table>
-				<tr>
-					<td>Username:</td>
-					<td>{{u.username}}</td>
-				</tr>
-				<tr>
-					<td>Firstname:</td>
-					<td>{{u.first_name}}</td>
-				</tr>
-			</table>
-		</div>
-
+		<img src="{{u.profile.image.url}}">
+	<div class="text-center">
+		{{u.username}}	
 	</div>
+	<table>
+		<tbody>
+			<tr>
+				<td>First Name :</td>
+				<td style="font-weight:bold;">{{u.first_name}}</td>
+			</tr>
+			<tr>
+				<td>Last Name :</td>
+				<td style="font-weight:bold;">{{u.last_name}}</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+<script src={% static 'js/jquery.js' %}></script>
+<script src={% static 'js/bootstrap.min.js' %}></script>
+</body>
 </body>
 </html>

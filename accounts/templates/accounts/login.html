@@ -9,13 +9,22 @@
     <style>
         body{
             display:flex;
+            background: linear-gradient(to right, red,orange);
         }
         .container{
             text-align: center;
             margin-top: 100px;
         }
+        .form-container{
+            display: flex;
+            height: 446.7px;
+            vertical-align:middle;
+            align-items: center;
+        }
         form{
             margin:auto;
+            vertical-align:middle;
+            clear: right;
         }
         input {
             height:50px;
@@ -27,9 +36,6 @@
     </style>
 </head>
 <body>
-
-
-    
     <div class="container">
     {% if messages %}
         {% for message in messages %}
@@ -38,16 +44,21 @@
         </div>
         {% endfor %}
     {% endif %}
-        <form action={% url 'login' %} method="POST">
-            {% csrf_token %}
-            <input type="text" placeholder="username" name="username" /><br /><br>
-            <input type="password" placeholder="Password" name="password" /><br /><br>
-            <input type="submit" placeholder="login" /><br /><br>
-        </form>
-        <div>
-            <small class="text-muted">
+        <div class="col-lg-6 col-md-6 visible-lg visible-md" >
+            <img src={% static 'images/image.jpg' %} style="max-width: 100%; min-height: 100%;">
+        </div>
+        <div class="form-container col-lg-6 col-md-6">
+            <form action={% url 'login' %} method="POST">
+                {% csrf_token %}
+                <input type="text" placeholder="username" name="username" /><br /><br>
+                <input type="password" placeholder="Password" name="password" /><br /><br>
+                <input type="submit" placeholder="login" /><br /><br>
+                 <small class="text-muted">
                 Dont have an acc? <a href="register/">Register now</a>
             </small>
+            </form>
+        
+           
         </div>
     </div>
 </body>

@@ -95,16 +95,17 @@ a button{
 	min-width:100%;
 	height:auto;
 }
-#posts > div {
+#posts a {
 	padding: 10px;
 	color:white;
+	text-decoration: none;
 }
 
 .ustile{
   padding:10px;
   text-decoration: none;
 }
-.ustile > img{
+.ustile img{
 	max-height:150px;
 	min-height:150px;
 	max-width:150px;

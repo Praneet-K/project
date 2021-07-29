@@ -92,10 +92,12 @@
             </div>
             </a>
             <!--<input type="text" placeholder="Enter the Username" /> -->
-            <div id="posttile" class="text-center">
+            <div id="posttile" class="text-center" >
                 {% for post in posts reversed %}
-                <img src="{{post.image.url}}" class="img-responsive " style="min-width:100%; height:auto;">
-                <div>Uploaded by {{post.creator}}</div>
+                <a href="displaypost/{{post.id}}">
+                    <img src="{{post.image.url}}" class="img-responsive " style="min-width:100%; height:auto;">
+                    <div>Uploaded by {{post.creator}}</div>
+                </a>
                 {% endfor %}
             </div>
         </div>
