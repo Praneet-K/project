@@ -31,16 +31,15 @@ def display(request,userid):
 	return render(request,'kondeti/display.html',{'u':U[0]})
 
 def displaypost(request,pk):
-	form = addCommentForm(request.POST)
 	p = Post.objects.get(id=pk)
 	c = comment.objects.filter(post=p)
 	# print(c[0])
 	q={
 	'p':p,
 	'c':c,
-	'form':form,
 	}
 	return render(request,'kondeti/displaypost.html',q)
+
 def addComment(request,pk):
 	form= addCommentForm(request.POST)
 	if(request.method=='POST'):
@@ -51,7 +50,8 @@ def addComment(request,pk):
 		instance.commenter_name= request.user
 		instance.save()
 		messages.success(request, f'Comment added')
-	return redirect('kondeti:kondeti-displaypost',pk=pk) 
+	return redirect('kondeti:kondeti-displaypost',pk=pk)
+
 def deletePost(request,pk):
 	print('hi')
 	p = Post.objects.get(id=pk)
@@ -63,7 +63,6 @@ def deletePost(request,pk):
 	else:
 		messages.warning(request,f'Post not deleted only creator can delete')
 		return redirect('kondeti:kondeti-displaypost',pk=pk)
-
 
 	
 

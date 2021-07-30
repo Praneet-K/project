@@ -7,5 +7,5 @@ urlpatterns=[
     path('display/<userid>/',views.display,name='kondeti-display'),
     path('displaypost/<int:pk>/',views.displaypost,name='kondeti-displaypost'),
     path('addComment/<int:pk>/',views.addComment,name='kondeti-addComment'),
-    path('deletePost/<int:pk>/',views.addComment,name='kondeti-deletePost')
+    path('deletePost/<int:pk>/',views.deletePost,name='kondeti-deletePost')
 ]
