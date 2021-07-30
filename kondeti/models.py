@@ -22,4 +22,4 @@ class comment(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.post.id} {self.commentater_name.username}'
+        return f'{self.post.id} {self.commenter_name.username}'

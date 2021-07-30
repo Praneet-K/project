@@ -22,7 +22,7 @@ from kondeti import views as k_v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('kondeti/',include('kondeti.urls')),
+    path('kondeti/',include(('kondeti.urls','kondeti'),namespace='home')),
     path('register/',account_views.register, name='register'),
     path('logout/',account_views.logout,name='logout'),
     path('update/',account_views.update,name='update'),
